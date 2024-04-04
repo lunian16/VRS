@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VRS.CustomerPage"
+             Title="CustomerPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Please add new customer information here."
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <Label Text="Customer Id" Padding="10" />
+            <Entry x:Name="customeridEntry" Placeholder="0000" HorizontalOptions="Fill" WidthRequest="400"/>
+        </HorizontalStackLayout>
+        
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <Label Text="Last Name" Padding="10" />
+            <Entry x:Name="lastnameEntry" Placeholder="Last Name" HorizontalOptions="Fill" WidthRequest="400"/>
+        </HorizontalStackLayout>
+        
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <Label Text="First Name" Padding="10" />
+            <Entry x:Name="firstnameEntry" Placeholder="First Name" HorizontalOptions="Fill" WidthRequest="400"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <Label Text="Phone Number" Padding="10" />
+            <Entry x:Name="phoneEntry" Placeholder="(xxx)xxx-xxxx" HorizontalOptions="Fill" WidthRequest="400"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <Label Text="Customer Email" Padding="10" />
+            <Entry x:Name="emailEntry" Placeholder="xx@xxx.xxx" HorizontalOptions="Fill" WidthRequest="400"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <Button Text="Add Customer" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#0B6DBD" FontSize="20" Margin="40" Clicked="OnAddCustomerSubmitButtonClicked" />
+            <Button Text="Delete Customer (USE ID ONLY)" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#0B6DBD" FontSize="20" Margin="40" Clicked="OnDeleteCustomerSubmitButtonClicked" />
+        </HorizontalStackLayout>
+
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <Button Text="Display All Customer" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#0B6DBD" FontSize="20" Margin="40" Clicked="OnDisplayAllCustomerBtnClick"/>
+            <Label x:Name="customersEditor" Text="" HeightRequest="300" />
+        </VerticalStackLayout>
+
+        <Button Text="Back to Main Page" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#0B6DBD" FontSize="20" Margin="40" Clicked="OnBackToMainButtonClicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

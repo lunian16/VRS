@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VRS.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            
+
+            <Label
+                Text="Welcome to Village Rental System!"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" 
+                VerticalOptions="CenterAndExpand" Padding="70"/>
+
+            <Button
+                x:Name="CustomerBtn"
+                Text="Manage Customers" 
+                Clicked="OnGoToCustomerButtonClicked"
+                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,40"  WidthRequest="400" TextColor="#F3F3F3" BackgroundColor="#0B6DBD" FontSize="20"/>
+
+
+            <Button
+                x:Name="EquipmentBtn"
+                Text="Manage Equipment" 
+                Clicked="OnGoToEquipmentButtonClicked"
+                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,40"  WidthRequest="400" TextColor="#F3F3F3" BackgroundColor="#0B6DBD" FontSize="20"/>
+
+            <Button
+                x:Name="RentalBtn"
+                Text="Manage Rental" 
+                Clicked="OnGoToRentalButtonClicked"
+                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,40"  WidthRequest="400" TextColor="#F3F3F3" BackgroundColor="#0B6DBD" FontSize="20"/>
+
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

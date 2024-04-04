@@ -1,0 +1,1 @@
+C:\github\SA final\VRS\VRS\VRS.csproj;x64
