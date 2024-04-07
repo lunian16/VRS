@@ -194,3 +194,4 @@ C:\github\SA final\VRS\VRS\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\System
 C:\github\SA final\VRS\VRS\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\System.Security.Permissions.dll
 C:\github\SA final\VRS\VRS\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\System.Windows.Extensions.dll
 C:\github\SA final\VRS\VRS\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\VRS.genpublishdeps.cache
+C:\github\SA final\VRS\VRS\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\VRS.sourcelink.json

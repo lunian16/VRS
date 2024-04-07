@@ -13,26 +13,35 @@
                 Text="Welcome to Village Rental System!"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" 
-                VerticalOptions="CenterAndExpand" Padding="70"/>
+                VerticalOptions="CenterAndExpand" Padding="50"
+                FontSize="Large"
+                FontAttributes="Italic,Bold"
+                FontFamily="inter"/>
 
+            <Button
+                x:Name="CategoryBtn"
+                Text="Manage Category" 
+                Clicked="OnGoToCategoryButtonClicked"
+                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,20"  WidthRequest="400" TextColor="#F3F3F3" BackgroundColor="#4F517E" FontSize="20"/>
+            
             <Button
                 x:Name="CustomerBtn"
                 Text="Manage Customers" 
                 Clicked="OnGoToCustomerButtonClicked"
-                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,40"  WidthRequest="400" TextColor="#F3F3F3" BackgroundColor="#0B6DBD" FontSize="20"/>
+                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,20"  WidthRequest="400" TextColor="#F3F3F3" BackgroundColor="#4F517E" FontSize="20"/>
 
 
             <Button
                 x:Name="EquipmentBtn"
                 Text="Manage Equipment" 
                 Clicked="OnGoToEquipmentButtonClicked"
-                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,40"  WidthRequest="400" TextColor="#F3F3F3" BackgroundColor="#0B6DBD" FontSize="20"/>
+                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,20"  WidthRequest="400" TextColor="#F3F3F3" BackgroundColor="#4F517E" FontSize="20"/>
 
             <Button
                 x:Name="RentalBtn"
                 Text="Manage Rental" 
                 Clicked="OnGoToRentalButtonClicked"
-                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,40"  WidthRequest="400" TextColor="#F3F3F3" BackgroundColor="#0B6DBD" FontSize="20"/>
+                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,20"  WidthRequest="400" TextColor="#F3F3F3" BackgroundColor="#4F517E" FontSize="20"/>
 
 
 

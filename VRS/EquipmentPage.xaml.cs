@@ -57,10 +57,10 @@ public partial class EquipmentPage : ContentPage
             }
         }
 
-        // 定义一个回调委托
+     
         public delegate void AlertCallback(string title, string message, string cancel);
 
-        // 用于存储回调的属性
+       
         public AlertCallback OnAlert { get; set; }
 
         public void DeleteEquipmentRecord(int equipmentId)
@@ -118,7 +118,7 @@ public partial class EquipmentPage : ContentPage
                     int categoryId = reader.GetInt32(4);
 
                     // Append each equipment's details to the StringBuilder
-                    allEquipmentDetails.AppendLine($"Equipment ID: {equipmentid}, Equipment Name: {equipmentName} Equipment Description: {equipmentDescription}, Daily Rate: {dailyRate}, Category Id: {categoryId}");
+                    allEquipmentDetails.AppendLine($"Equipment ID: {equipmentid}, Equipment Name: {equipmentName} Equipment Description: {equipmentDescription}, Daily Rate: {dailyRate}, Category ID: {categoryId}");
 
                 }
                 return allEquipmentDetails.ToString();

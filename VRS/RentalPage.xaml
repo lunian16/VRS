@@ -3,35 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VRS.RentalPage"
              Title="RentalPage">
+    <ScrollView>
     <VerticalStackLayout>
-        <Label 
-            Text="Please start a new rental here."
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            <Label 
+             Text="Rental Management"
+             VerticalOptions="Center" 
+             HorizontalOptions="Center" 
+                FontSize="Medium"
+                FontAttributes="Italic,Bold"
+                FontFamily="inter"/>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
             <Label Text="Rental Id" Padding="10" />
             <Entry x:Name="RentalidEntry" Placeholder="0000" HorizontalOptions="Fill" WidthRequest="400"/>
         </HorizontalStackLayout>
 
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
             <Label Text="Date" Padding="10" />
-            <Entry x:Name="ApplyDateEntry" Placeholder="00" HorizontalOptions="Fill" WidthRequest="400"/>
-        </HorizontalStackLayout>
-
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
-            <Label Text="Customer Id" Padding="10" />
-            <Entry x:Name="CustomerIdEntry" HorizontalOptions="Fill" WidthRequest="400"/>
+            <DatePicker x:Name="applydatePicker" WidthRequest="400" />
         </HorizontalStackLayout>
 
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
             <Label Text="Rental Date" Padding="10" />
-            <Entry x:Name="RentalDateEntry" HorizontalOptions="Fill" WidthRequest="400"/>
+            <DatePicker x:Name="rentaldatePicker" WidthRequest="400" />
         </HorizontalStackLayout>
         
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
             <Label Text="Return Date" Padding="10" />
-            <Entry x:Name="ReturnDateEntry" HorizontalOptions="Fill" WidthRequest="400"/>
+            <DatePicker x:Name="returndatePicker" WidthRequest="400" />
         </HorizontalStackLayout>
 
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
@@ -39,19 +38,31 @@
             <Entry x:Name="CostEntry" HorizontalOptions="Fill" WidthRequest="400"/>
         </HorizontalStackLayout>
 
-
-        <Button Text="Add Rental" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#0B6DBD" FontSize="20" Margin="40" />
-
-
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
-            <Label Text="All Rental Information" Padding="10" />
-            <Picker>
-
-            </Picker>
+            <Label Text="Equipment Id" Padding="10" />
+            <Entry x:Name="EquipmentIdEntry" HorizontalOptions="Fill" WidthRequest="400"/>
         </HorizontalStackLayout>
 
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <Label Text="Customer Id" Padding="10" />
+            <Entry x:Name="CustomerIdEntry" HorizontalOptions="Fill" WidthRequest="400"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Button Text="Add Rental" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnAddRentalSubmitButtonClicked"/>
+                <Button Text="Delete Rental" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDeleteRentalSubmitButtonClicked"/>
+        </HorizontalStackLayout>
+
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Button Text="Display All Rental" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDisplayAllRentalBtnClick"/>
+            <Frame BorderColor="Black" CornerRadius="5" Padding="4">
+                <Label x:Name="rentalsEditor" Text="" HeightRequest="300"/>
+            </Frame>
+        </VerticalStackLayout>
 
 
-        <Button Text="Back to Main Page" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#0B6DBD" FontSize="20" Margin="40" Clicked="OnBackToMainButtonClicked"/>
+
+            <Button Text="Back to Main Page" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="40" Clicked="OnBackToMainButtonClicked"/>
     </VerticalStackLayout>
+        </ScrollView>
 </ContentPage>

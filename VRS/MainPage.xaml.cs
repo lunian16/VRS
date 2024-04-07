@@ -8,6 +8,10 @@
             InitializeComponent();
         }
 
+        private async void OnGoToCategoryButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Category());
+        }
         private async void OnGoToCustomerButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CustomerPage());

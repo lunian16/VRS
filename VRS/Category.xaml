@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VRS.Category"
+             Title="Category">
+    <ScrollView>
+    <VerticalStackLayout>
+        
+        <Label 
+         Text="Category Management"
+         VerticalOptions="Center" 
+         HorizontalOptions="Center" 
+            FontSize="Medium"
+            FontAttributes="Italic,Bold"
+            FontFamily="inter"/>
+
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <Label Text="Category Id" Padding="10" />
+            <Entry x:Name="categoryidEntry" Placeholder="00" HorizontalOptions="Fill" WidthRequest="400"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <Label Text="Category Name" Padding="10" />
+            <Entry x:Name="categorynameEntry" Placeholder="Category Name" HorizontalOptions="Fill" WidthRequest="400"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Button Text="Add Category" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnAddCategorySubmitButtonClicked" />
+                <Button Text="Delete Category (USE ID ONLY)" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDeleteCategorySubmitButtonClicked" />
+        </HorizontalStackLayout>
+
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Button Text="Display All Category" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDisplayAllCategoryBtnClick"/>
+            <Frame BorderColor="Black" CornerRadius="5" Padding="4">
+                <Label x:Name="categoryEditor" Text="" HeightRequest="300"  Padding="20" />
+            </Frame>
+        </VerticalStackLayout>
+
+
+            <Button Text="Back to Main Page" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="40" Clicked="OnBackToMainButtonClicked"/>
+    </VerticalStackLayout>
+        </ScrollView>
+</ContentPage>

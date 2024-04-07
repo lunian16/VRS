@@ -3,13 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VRS.EquipmentPage"
              Title="EquipmentPage">
+    <ScrollView>
     <VerticalStackLayout>
-        <Label 
-            Text="Please add new customer information here."
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            <Label 
+             Text="Equipment Management"
+             VerticalOptions="Center" 
+             HorizontalOptions="Center" 
+                FontSize="Medium"
+                FontAttributes="Italic,Bold"
+                FontFamily="inter"/>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
             <Label Text="Equipment Id" Padding="10" />
             <Entry x:Name="EquipmentidEntry" Placeholder="000" HorizontalOptions="Fill" WidthRequest="400"/>
         </HorizontalStackLayout>
@@ -34,20 +38,23 @@
             <Entry x:Name="CategoryIdEntry" Placeholder="00" HorizontalOptions="Fill" WidthRequest="400"/>
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
-            <Button Text="Add Equipment" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#0B6DBD" FontSize="20" Margin="40" Clicked="OnAddEquipmentSubmitButtonClicked"/>
-            <Button Text="Delete Equipment" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#0B6DBD" FontSize="20" Margin="40" Clicked="OnDeleteEquipmentSubmitButtonClicked"/>
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Button Text="Add Equipment" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnAddEquipmentSubmitButtonClicked"/>
+                <Button Text="Delete Equipment" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDeleteEquipmentSubmitButtonClicked"/>
         </HorizontalStackLayout>
 
 
-        <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
-            <Button Text="Display All Equipment" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#0B6DBD" FontSize="20" Margin="40" Clicked="OnDisplayAllEquipmentBtnClick"/>
-            <Label x:Name="equipmentEditor" Text="" HeightRequest="300" />
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Button Text="Display All Equipment" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDisplayAllEquipmentBtnClick"/>
+            <Frame BorderColor="Black" CornerRadius="5" Padding="4">
+                <Label x:Name="equipmentEditor" Text="" HeightRequest="300" Padding="20"/>
+            </Frame>
         </VerticalStackLayout>
 
 
 
 
-        <Button Text="Back to Main Page" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#0B6DBD" FontSize="20" Margin="40" Clicked="OnBackToMainButtonClicked"/>
+            <Button Text="Back to Main Page" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="40" Clicked="OnBackToMainButtonClicked"/>
     </VerticalStackLayout>
+        </ScrollView>
 </ContentPage>
