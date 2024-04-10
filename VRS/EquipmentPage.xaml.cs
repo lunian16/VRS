@@ -9,8 +9,21 @@ public partial class EquipmentPage : ContentPage
 	public EquipmentPage()
 	{
 		InitializeComponent();
-	}
 
+        var builder = new MySqlConnectionStringBuilder
+        {
+            Server = "localhost",
+            UserID = "root",
+            Password = "password",
+            Database = "vrs",
+        };
+
+        DatabaseAccess access = new DatabaseAccess(builder);
+        List<CategoryList> categories = access.FetchAllCategory();
+        CategoryPicker.ItemsSource = categories;
+        CategoryPicker.ItemDisplayBinding = new Binding("FullDetails");
+    }
+    //back to main page button
     private async void OnBackToMainButtonClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new MainPage());
@@ -28,7 +41,7 @@ public partial class EquipmentPage : ContentPage
             BuilderString = builderString;
         }
 
-
+        //insert into equipment database
         public void InsertRecordIfNotExists(int equipment_id, string equipment_name, string equipment_description, double daily_rate, int category_id)
         {
             using (var connection = new MySqlConnection(BuilderString.ConnectionString))
@@ -63,6 +76,7 @@ public partial class EquipmentPage : ContentPage
        
         public AlertCallback OnAlert { get; set; }
 
+        //delete equipment from database
         public void DeleteEquipmentRecord(int equipmentId)
         {
             try
@@ -97,7 +111,7 @@ public partial class EquipmentPage : ContentPage
             }
         }
     
-
+        //load equipment from database and list them
     public string LoadEquipmentsToListView()
         {
             StringBuilder allEquipmentDetails = new StringBuilder();
@@ -126,17 +140,41 @@ public partial class EquipmentPage : ContentPage
 
         }
 
+        //show all category in the picker
+        
+        public List<CategoryList> FetchAllCategory()
+        {
+            List<CategoryList> categories = new List<CategoryList>();
+            using (var connection = new MySqlConnection(BuilderString.ConnectionString))
+            {
+                connection.Open ();
+                string sql = "SELECT category_id, category_name FROM category";
+                MySqlCommand command = new MySqlCommand( sql, connection);
+                using(MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        categories.Add(new CategoryList()
+                        {
+                            Categoryid = reader.GetInt32(0),
+                            Categoryname = reader.GetString(1),
+                        });
+                    }
+                }
+                connection.Close();
+            }
+            return categories;
+        }
 
     }
 
-
+    //clear all information after submit successfully
     private void ClearEquipmentForm()    //empty all entry and allow next input
     {
         EquipmentidEntry.Text = string.Empty;
         EquipnameEntry.Text = string.Empty;
         EquipDescrEntry.Text = string.Empty;
         rateEntry.Text = string.Empty;
-        CategoryIdEntry.Text = string.Empty;
     }
 
 
@@ -156,28 +194,7 @@ public partial class EquipmentPage : ContentPage
     }
 
 
-    public void EquipmentinputToDatabaseAsync(object sender, EventArgs e)
-    {
 
-        var builder = new MySqlConnectionStringBuilder
-        {
-            Server = "localhost",
-            UserID = "root",
-            Password = "password",
-            Database = "vrs",
-        };
-        DatabaseAccess dbAccess = new DatabaseAccess(builder);
-
-
-        // Get the text from the Entry
-        int Equipmentid = Convert.ToInt32(EquipmentidEntry.Text);
-        string Equipname = EquipnameEntry.Text;
-        string EquipDescr = EquipDescrEntry.Text;
-        double rate = double.Parse(rateEntry.Text);
-        int CategoryId = Convert.ToInt32(CategoryIdEntry.Text);
-
-        dbAccess.InsertRecordIfNotExists(Equipmentid, Equipname, EquipDescr, rate, CategoryId);
-    }
 
 
     public void EquipmentDeleteFromDatabaseAsync(object sender, EventArgs e)
@@ -211,8 +228,40 @@ public partial class EquipmentPage : ContentPage
         equipmentEditor.Text = db4Access.LoadEquipmentsToListView();
 
     }
+    public int Category_Id;
+    public void CategoryPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        var selectedItem = (CategoryList)picker.SelectedItem;
+        if (selectedItem != null)
+        {
+           Category_Id =Convert.ToInt32(selectedItem.Categoryid);
+        }
+        
+    }
+
+    public void EquipmentinputToDatabaseAsync(object sender, EventArgs e)
+    {
+
+        var builder = new MySqlConnectionStringBuilder
+        {
+            Server = "localhost",
+            UserID = "root",
+            Password = "password",
+            Database = "vrs",
+        };
+        DatabaseAccess dbAccess = new DatabaseAccess(builder);
 
 
+        // Get the text from the Entry
+        int Equipmentid = Convert.ToInt32(EquipmentidEntry.Text);
+        string Equipname = EquipnameEntry.Text;
+        string EquipDescr = EquipDescrEntry.Text;
+        double rate = double.Parse(rateEntry.Text);
+        int CategoryId = Category_Id;
+
+        dbAccess.InsertRecordIfNotExists(Equipmentid, Equipname, EquipDescr, rate, CategoryId);
+    }
 
 
 }

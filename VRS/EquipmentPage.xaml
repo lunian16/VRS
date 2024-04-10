@@ -34,8 +34,7 @@
         </HorizontalStackLayout>
 
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
-            <Label Text="Category Id" Padding="10" />
-            <Entry x:Name="CategoryIdEntry" Placeholder="00" HorizontalOptions="Fill" WidthRequest="400"/>
+                <Picker x:Name="CategoryPicker" Title="Choose Category" WidthRequest="400" SelectedIndexChanged="CategoryPicker_SelectedIndexChanged"></Picker>
         </HorizontalStackLayout>
 
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">

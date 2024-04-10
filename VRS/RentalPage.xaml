@@ -22,8 +22,23 @@
             <Label Text="Date" Padding="10" />
             <DatePicker x:Name="applydatePicker" WidthRequest="400" />
         </HorizontalStackLayout>
+        
+        
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+                <Label Text="Customer" Padding="10" />
+                <Picker x:Name="CustomerPicker" Title="Choose Customer" WidthRequest="400" SelectedIndexChanged="CustomerPicker_SelectedIndexChanged"></Picker>
+            </HorizontalStackLayout>
+        
+        
+        
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+                <Label Text="Equipment" Padding="10" />
+                <Picker x:Name="EquipmentPicker" Title="Choose Equipment" WidthRequest="400" SelectedIndexChanged="EquipmentPicker_SelectedIndexChanged"></Picker>
+            </HorizontalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+
+
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
             <Label Text="Rental Date" Padding="10" />
             <DatePicker x:Name="rentaldatePicker" WidthRequest="400" />
         </HorizontalStackLayout>
@@ -34,19 +49,12 @@
         </HorizontalStackLayout>
 
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
-            <Label Text="Toal Cost" Padding="10" />
-            <Entry x:Name="CostEntry" HorizontalOptions="Fill" WidthRequest="400"/>
+            <Label Text="Toal Price" Padding="10" />
+            <Label x:Name="totalPrice" Text="" Padding="10"></Label>
+            <Button Text="Calculate Total Price" HorizontalOptions="CenterAndExpand" WidthRequest="150" BackgroundColor="#4F517E" FontSize="10" Clicked="OnCalculateTotalPrice"></Button>
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
-            <Label Text="Equipment Id" Padding="10" />
-            <Entry x:Name="EquipmentIdEntry" HorizontalOptions="Fill" WidthRequest="400"/>
-        </HorizontalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
-            <Label Text="Customer Id" Padding="10" />
-            <Entry x:Name="CustomerIdEntry" HorizontalOptions="Fill" WidthRequest="400"/>
-        </HorizontalStackLayout>
 
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 <Button Text="Add Rental" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnAddRentalSubmitButtonClicked"/>
