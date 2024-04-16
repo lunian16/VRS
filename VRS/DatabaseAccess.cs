@@ -382,7 +382,7 @@ namespace VRS
                     int customer_id = reader.GetInt32(6);
 
                     // Append each customer's details to the StringBuilder
-                    allRentalDetails.AppendLine($"Rental ID: {rental_id}, Applydate: {applydate}, Rental from {rental_date} to {return_date}, Total cost: {cost}, Equipment Id:{equipment_id}, Customer Id:{customer_id}");
+                    allRentalDetails.AppendLine($"Rental ID: {rental_id}, Applydate: {applydate:yyyy-MM-dd}, Rental from {rental_date:yyyy-MM-dd} to {return_date:yyyy-MM-dd}, Total cost: {cost}, Equipment ID:{equipment_id}, Customer ID:{customer_id}");
 
                 }
                 return allRentalDetails.ToString();
