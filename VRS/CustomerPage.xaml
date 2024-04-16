@@ -12,12 +12,7 @@
                 FontSize="Medium"
                 FontAttributes="Italic,Bold"
                 FontFamily="inter"/>
-
-            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
-            <Label Text="Customer Id" Padding="10" />
-            <Entry x:Name="customeridEntry" Placeholder="0000" HorizontalOptions="Fill" WidthRequest="400"/>
-        </HorizontalStackLayout>
-        
+            
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
             <Label Text="Last Name" Padding="10" />
             <Entry x:Name="lastnameEntry" Placeholder="Last Name" HorizontalOptions="Fill" WidthRequest="400"/>
@@ -38,10 +33,16 @@
             <Entry x:Name="emailEntry" Placeholder="xx@xxx.xxx" HorizontalOptions="Fill" WidthRequest="400"/>
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Button Text="Add Customer" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnAddCustomerSubmitButtonClicked" />
-                <Button Text="Delete Customer (USE ID ONLY)" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDeleteCustomerSubmitButtonClicked" />
+        
+        <Button Text="Add Customer" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnAddCustomerSubmitButtonClicked" />
+
+     
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+                    <Label Text="Customer Id" Padding="10" />
+                    <Entry x:Name="customeridEntry" Placeholder="0000" HorizontalOptions="Fill" WidthRequest="400"/>
         </HorizontalStackLayout>
+        <Button Text="Delete Customer" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDeleteCustomerSubmitButtonClicked" />
+        
 
         <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 <Button Text="Display All Customer" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDisplayAllCustomerBtnClick"/>

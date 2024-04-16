@@ -1,3 +1,4 @@
+
 using Microsoft.VisualBasic;
 using MySqlConnector;
 using System.Text;
@@ -7,10 +8,14 @@ namespace VRS;
 
 public partial class RentalPage : ContentPage
 {
-	public RentalPage()
+    public DateTime Tomorrow { get; } = DateTime.Today.AddDays(1);
+    DatabaseAccess dbAccess = new DatabaseAccess();
+    List<Rental> AllRentals;
+    public RentalPage()
 	{
         InitializeComponent();
 
+        BindingContext = this;
 
         DatabaseAccess access = new DatabaseAccess();
         List<Customer> customer = access.FetchAllCustomer();
@@ -21,6 +26,7 @@ public partial class RentalPage : ContentPage
         EquipmentPicker.ItemsSource = equipment;
         EquipmentPicker.ItemDisplayBinding = new Binding("FullDetails");
 
+        LoadRentals();
     }
 
     async void RefreshPage()
@@ -28,7 +34,6 @@ public partial class RentalPage : ContentPage
         await Navigation.PopAsync(); // Pop the current page
         await Navigation.PushAsync(new RentalPage()); // 
     }
-
 
     private async void OnBackToMainButtonClicked(object sender, EventArgs e)
     {
@@ -49,9 +54,8 @@ public partial class RentalPage : ContentPage
     private async void OnAddRentalSubmitButtonClicked(object sender, EventArgs e)   //add rental btn clicked event
     {
         RentalinputToDatabaseAsync(sender, e);
-        await DisplayAlert("Submit successfully", "This rental has been added successfully", "OK");
-        ClearRentalForm();
         RefreshPage();
+        ClearRentalForm();
 
     }
 
@@ -89,29 +93,83 @@ public partial class RentalPage : ContentPage
         {
             customer_id = Convert.ToInt32(selectedItem.Customer_Num);
         }
-
     }
 
-
-    //rental input into database
-    public void RentalinputToDatabaseAsync(object sender, EventArgs e)
+  
+    public void LoadRentals()
     {
-
-        DatabaseAccess dbAccess = new DatabaseAccess();
-
-        // Get the text from the Entry
-        int Rentalid = Convert.ToInt32(RentalidEntry.Text);
-        DateTime applydate = applydatePicker.Date;
-        DateTime rentaldate = returndatePicker.Date;
-        DateTime returndate = returndatePicker.Date;     
-        double cost = Convert.ToDouble(totalPrice.Text);
-        cost = Math.Round(cost, 2);
-        int Equipmentid= equipment_id;
-        int Customerid=customer_id;
-
-
-        dbAccess.InsertRecordIfNotExists(Rentalid, applydate, rentaldate, returndate, cost, Equipmentid, Customerid);
+        AllRentals = dbAccess.CompareDate();
     }
+
+
+     
+
+    public bool IsDateAvailable()
+    {
+        DateTime startDate = rentaldatePicker.Date;
+        DateTime endDate = returndatePicker.Date;
+        int equipmentId= equipment_id;
+
+        foreach (var rental in AllRentals)
+        {
+            if (rental.equipmentid == equipmentId &&startDate <= rental.returndate && endDate >= rental.rentaldate)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    private bool ValidateDates() //make sure return date is larger than rental date
+    {
+        if (returndatePicker.Date <= rentaldatePicker.Date)
+        {
+            return false;
+        }
+        return true;
+    }
+
+
+
+
+    public async Task RentalinputToDatabaseAsync(object sender, EventArgs e)
+    {
+        
+        if (!ValidateDates())
+        {
+            await DisplayAlert("Error", "Return date must be after rental date.", "OK");
+            return;
+        }
+
+
+        else
+        {
+            if(!IsDateAvailable())
+            {
+                
+                await DisplayAlert("Error", "This item has already been rented during this period ", "OK");
+                return;
+            }
+            else { 
+
+            DatabaseAccess dbAccess = new DatabaseAccess();
+            DateTime applydate = DateTime.Today;
+            DateTime rentaldate = rentaldatePicker.Date;
+            DateTime returndate = returndatePicker.Date;
+            double cost = Convert.ToDouble(totalPrice.Text);
+            cost = Math.Round(cost, 2);
+            int Equipmentid = equipment_id;
+            int Customerid = customer_id;
+
+            
+            dbAccess.InsertRecordIfNotExists(applydate, rentaldate, returndate, cost, Equipmentid, Customerid);
+            await DisplayAlert("Success", "Rental record added successfully.", "OK");
+            }
+        }
+
+    }
+
 
     //rental delete from database
     public void RentalDeleteFromDatabaseAsync(object sender, EventArgs e)

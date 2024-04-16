@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VRS.RentalPage"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
              Title="RentalPage">
     <ScrollView>
     <VerticalStackLayout>
@@ -13,10 +15,7 @@
                 FontAttributes="Italic,Bold"
                 FontFamily="inter"/>
 
-            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
-            <Label Text="Rental Id" Padding="10" />
-            <Entry x:Name="RentalidEntry" Placeholder="0000" HorizontalOptions="Fill" WidthRequest="400"/>
-        </HorizontalStackLayout>
+            
 
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
             <Label Text="Date" Padding="10" />
@@ -40,12 +39,13 @@
 
             <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
             <Label Text="Rental Date" Padding="10" />
-            <DatePicker x:Name="rentaldatePicker" WidthRequest="400" />
+                <DatePicker x:Name="rentaldatePicker" WidthRequest="400" MinimumDate="{Binding Mode=OneWay, Source={x:Static
+            System:DateTime.Today}}"  />
         </HorizontalStackLayout>
         
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
             <Label Text="Return Date" Padding="10" />
-            <DatePicker x:Name="returndatePicker" WidthRequest="400" />
+                <DatePicker x:Name="returndatePicker" WidthRequest="400" MinimumDate="{Binding Tomorrow}"></DatePicker>
         </HorizontalStackLayout>
 
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
@@ -56,10 +56,15 @@
 
 
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+       
                 <Button Text="Add Rental" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnAddRentalSubmitButtonClicked"/>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+                    <Label Text="Rental Id" Padding="10" />
+                    <Entry x:Name="RentalidEntry" Placeholder="0000" HorizontalOptions="Fill" WidthRequest="400"/>
+                </HorizontalStackLayout>
                 <Button Text="Delete Rental" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDeleteRentalSubmitButtonClicked"/>
-        </HorizontalStackLayout>
+
 
         <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 <Button Text="Display All Rental" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDisplayAllRentalBtnClick"/>
