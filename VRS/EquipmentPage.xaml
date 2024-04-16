@@ -13,6 +13,8 @@
                 FontAttributes="Italic,Bold"
                 FontFamily="inter"/>
 
+            <Label Text="Add / Delete Equipment" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" Padding="10" Margin="10" TextDecorations="Underline"></Label>
+
             <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
             <Label Text="Equipment Id" Padding="10" />
             <Entry x:Name="EquipmentidEntry" Placeholder="000" HorizontalOptions="Fill" WidthRequest="400"/>
@@ -39,21 +41,23 @@
 
         <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                 <Button Text="Add Equipment" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnAddEquipmentSubmitButtonClicked"/>
-                <Button Text="Delete Equipment" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDeleteEquipmentSubmitButtonClicked"/>
+                <Button Text="Delete Equipment (USE ID ONLY)" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDeleteEquipmentSubmitButtonClicked"/>
         </HorizontalStackLayout>
 
 
         <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Button Text="Display All Equipment" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDisplayAllEquipmentBtnClick"/>
-            <Frame BorderColor="Black" CornerRadius="5" Padding="4">
+                <Label Text="Show Equipment List" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" Padding="10" Margin="10" TextDecorations="Underline"></Label>
+              
+            <Frame CornerRadius="5" Padding="4" WidthRequest="900">
                 <Label x:Name="equipmentEditor" Text="" HeightRequest="300" Padding="20"/>
             </Frame>
+                <Button Text="Display All Equipment" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDisplayAllEquipmentBtnClick"/>
+            </VerticalStackLayout>
+
+
+
+
+            <Button Text="⬅" HorizontalOptions="Start" WidthRequest="50" BackgroundColor="#4F517E" FontSize="20" Margin="40" Clicked="OnBackToMainButtonClicked"/>
         </VerticalStackLayout>
-
-
-
-
-            <Button Text="Back to Main Page" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="40" Clicked="OnBackToMainButtonClicked"/>
-    </VerticalStackLayout>
         </ScrollView>
 </ContentPage>

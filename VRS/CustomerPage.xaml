@@ -12,8 +12,10 @@
                 FontSize="Medium"
                 FontAttributes="Italic,Bold"
                 FontFamily="inter"/>
-            
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+
+            <Label Text="Add Customer" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" Padding="10" Margin="10" TextDecorations="Underline"></Label>
+        
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Label Text="Last Name" Padding="10" />
             <Entry x:Name="lastnameEntry" Placeholder="Last Name" HorizontalOptions="Fill" WidthRequest="400"/>
         </HorizontalStackLayout>
@@ -36,8 +38,9 @@
         
         <Button Text="Add Customer" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnAddCustomerSubmitButtonClicked" />
 
-     
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <Label Text="Delete Customer" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" Padding="10" Margin="10" TextDecorations="Underline"></Label>
+
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
                     <Label Text="Customer Id" Padding="10" />
                     <Entry x:Name="customeridEntry" Placeholder="0000" HorizontalOptions="Fill" WidthRequest="400"/>
         </HorizontalStackLayout>
@@ -45,14 +48,15 @@
         
 
         <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Button Text="Display All Customer" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDisplayAllCustomerBtnClick"/>
-            <Frame BorderColor="Black" CornerRadius="5" Padding="4">
+                <Label Text="Show Customer List" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" Padding="10" Margin="10" TextDecorations="Underline"></Label>
+                <Frame CornerRadius="5" Padding="4" WidthRequest="800">
                 <Label x:Name="customersEditor" Text="" HeightRequest="300"  Padding="20" />
             </Frame>
+                <Button Text="Display All Customer" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDisplayAllCustomerBtnClick"/>
+            </VerticalStackLayout>
+
+            <Button Text="⬅" HorizontalOptions="Start" WidthRequest="50" BackgroundColor="#4F517E" FontSize="20" Margin="40" Clicked="OnBackToMainButtonClicked"/>
+
         </VerticalStackLayout>
-
-            <Button Text="Back to Main Page" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="40" Clicked="OnBackToMainButtonClicked"/>
-
-    </VerticalStackLayout>
         </ScrollView>
 </ContentPage>

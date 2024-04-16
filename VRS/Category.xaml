@@ -14,7 +14,9 @@
             FontAttributes="Italic,Bold"
             FontFamily="inter"/>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+            <Label Text="Add / Delete Category" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" Padding="10" Margin="20" TextDecorations="Underline"></Label>
+
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
             <Label Text="Category Id" Padding="10" />
             <Entry x:Name="categoryidEntry" Placeholder="00" HorizontalOptions="Fill" WidthRequest="400"/>
         </HorizontalStackLayout>
@@ -30,14 +32,16 @@
         </HorizontalStackLayout>
 
         <VerticalStackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Button Text="Display All Category" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDisplayAllCategoryBtnClick"/>
-            <Frame BorderColor="Black" CornerRadius="5" Padding="4">
+                <Label Text="Show Category List" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" Padding="10" Margin="20" TextDecorations="Underline"></Label>
+               
+            <Frame CornerRadius="5" Padding="4">
                 <Label x:Name="categoryEditor" Text="" HeightRequest="300"  Padding="20" />
             </Frame>
-        </VerticalStackLayout>
+                <Button Text="Display All Category" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="20" Clicked="OnDisplayAllCategoryBtnClick"/>
+            </VerticalStackLayout>
 
 
-            <Button Text="Back to Main Page" HorizontalOptions="CenterAndExpand" WidthRequest="400" BackgroundColor="#4F517E" FontSize="20" Margin="40" Clicked="OnBackToMainButtonClicked"/>
+            <Button Text="⬅" HorizontalOptions="Start" WidthRequest="50" BackgroundColor="#4F517E" FontSize="20" Margin="40" Clicked="OnBackToMainButtonClicked"/>
     </VerticalStackLayout>
         </ScrollView>
 </ContentPage>

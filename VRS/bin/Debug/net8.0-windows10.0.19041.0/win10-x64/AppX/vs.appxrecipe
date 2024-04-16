@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\github\SA final\VRS\VRS\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-04-16T06:45:19.701</Modified>
+      <Modified>2024-04-16T15:58:01.623</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\github\SA final\VRS\VRS\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\VRS.dll">
       <PackagePath>VRS.dll</PackagePath>
-      <Modified>2024-04-16T06:45:19.482</Modified>
+      <Modified>2024-04-16T15:58:01.363</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\github\SA final\VRS\VRS\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>VRS.exe</PackagePath>
-      <Modified>2024-04-16T06:45:19.482</Modified>
+      <Modified>2024-04-16T15:58:01.367</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\github\SA final\VRS\VRS\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
